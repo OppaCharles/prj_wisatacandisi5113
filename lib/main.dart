@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prj_wisatacandisi51/widgets/detail_screen.dart';
 import 'package:prj_wisatacandisi51/data/candi_data.dart';
+import 'package:prj_wisatacandisi51/widgets/favorite_screen.dart';
 import 'package:prj_wisatacandisi51/widgets/home_screen.dart';
 import 'package:prj_wisatacandisi51/widgets/profile_screen.dart';
 import 'package:prj_wisatacandisi51/widgets/search_screen.dart';
@@ -36,10 +37,60 @@ class MyApp extends StatelessWidget {
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       //   useMaterial3: true,
       // ),
-      home: HomeScreen(),
+      home: HomeScreen();
       //SignInScreen()
       //ProfileScreen(),
       //DetailScreen(candi: candiList[0]),
+    );
+  }
+}
+
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int _currentIndes = 0;
+  final List<Widget> _children = [
+    HomeScreen(),
+    SearchScreen(),
+    FavoriteScreen(),
+    ProfileScreen(),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _children[_currentIndes],
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(canvasColor: Colors.deepPurple.shade50),
+        child: BottomNavigationBar(
+          onTap: (Value){
+            setState(() {
+              _currentIndes = Value;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: Colors.deepPurple,
+              )),
+
+              BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: Colors.deepPurple,
+              ),
+              label: "Profile"),
+          ],
+          selectedItemColor: Colors.deepPurple,
+          unselectedItemColor: Colors.deepPurple.shade100,
+          showUnselectedLabels: true,
+          ),
+      ),
     );
   }
 }
