@@ -18,30 +18,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Wisata Candi',
-      theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-              iconTheme: IconThemeData(color: Colors.deepPurple),
-              titleTextStyle: TextStyle(
-                  color: Colors.deepPurple,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold)),
-          colorScheme:
-              ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
-            primary: Colors.deepPurple,
-            surface: Colors.deepPurple[50],
-          ),
-          useMaterial3: true),
+        title: 'Wisata Candi',
+        theme: ThemeData(
+            appBarTheme: const AppBarTheme(
+                iconTheme: IconThemeData(color: Colors.deepPurple),
+                titleTextStyle: TextStyle(
+                    color: Colors.deepPurple,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
+            colorScheme:
+                ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
+              primary: Colors.deepPurple,
+              surface: Colors.deepPurple[50],
+            ),
+            useMaterial3: true),
 
-      // theme: ThemeData(
-      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      //   useMaterial3: true,
-      // ),
-      home: HomeScreen();
-      //SignInScreen()
-      //ProfileScreen(),
-      //DetailScreen(candi: candiList[0]),
-    );
+        // theme: ThemeData(
+        //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        //   useMaterial3: true,
+        // ),
+        home: HomeScreen()
+        //SignInScreen()
+        //ProfileScreen(),
+        //DetailScreen(candi: candiList[0]),
+        );
   }
 }
 
@@ -65,31 +65,31 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: _children[_currentIndes],
       bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(canvasColor: Colors.deepPurple.shade50),
+        data:
+            Theme.of(context).copyWith(canvasColor: Colors.deepPurple.shade50),
         child: BottomNavigationBar(
-          onTap: (Value){
+          onTap: (Value) {
             setState(() {
               _currentIndes = Value;
             });
           },
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.deepPurple,
-              )),
-
-              BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.deepPurple,
-              ),
-              label: "Profile"),
+                icon: Icon(
+              Icons.home,
+              color: Colors.deepPurple,
+            )),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.deepPurple,
+                ),
+                label: "Profile"),
           ],
           selectedItemColor: Colors.deepPurple,
           unselectedItemColor: Colors.deepPurple.shade100,
           showUnselectedLabels: true,
-          ),
+        ),
       ),
     );
   }
